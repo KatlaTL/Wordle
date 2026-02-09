@@ -11,9 +11,10 @@
   </ItemGroup>
 
  <ItemGroup>
-  <None Update="Data\wordle_ord.txt">
+  <None Update="WordleApi\Data\wordle_ord.txt">
     <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
   </None>
 </ItemGroup>
 
 </Project>
+

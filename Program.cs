@@ -12,7 +12,10 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddSingleton<IWordProvider, WordleWordFileProvider>();
+
+builder.Services.AddSingleton<IGameService, GameService>();
+builder.Services.AddSingleton<IWordRepository, WordRepository>();
+builder.Services.AddSingleton<IGameRepository, InMemoryGameRepository>();
 
 var app = builder.Build();
 
