@@ -1,6 +1,6 @@
 # Wordle_Backend
 C# Backend for a simple Wordle game
-
+```
 MyApi/
 │
 ├── Controllers/
@@ -24,7 +24,8 @@ MyApi/
 ├── Program.cs
 ├── appsettings.json
 └── MyApi.csproj
-
+```
+```
 React
   |
   |  POST /api/todos
@@ -39,7 +40,8 @@ Service
   |  bruger DbContext
   v
 Database
-
+```
+```
 ┌─────────┐
 │ React   │
 │ (JSON)  │
@@ -67,3 +69,4 @@ Database
 ┌────────────┐
 │ Database   │
 └────────────┘
+```
