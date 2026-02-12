@@ -8,7 +8,7 @@ public class WordRepository : IWordRepository
 
     private List<Word> loadWords()
     {
-        var filePath = Path.Combine(AppContext.BaseDirectory, "WordleApi", "Data", "wordle_ord.txt");
+        var filePath = Path.Combine(AppContext.BaseDirectory, "Data", "wordle_ord.txt");
 
         return File.ReadLines(filePath)
             .Where(line => !String.IsNullOrWhiteSpace(line))
