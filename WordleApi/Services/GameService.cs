@@ -38,16 +38,32 @@ public class GameService : IGameService
         var guess = new Word(word);
 
         var correctPositions = new List<int>();
-        var presentButWrongPosition = new Dictionary<char, int>();
+        var presentButWrongPosition = new List<int>();
+        var solutionLetters = solution.ToCharArray();
+        var guessLetters = guess.Value.ToCharArray();
+        var remainingLetters = new Dictionary<char, int>();
 
-        for (int i = 0; i < solution.Length; i++)
+        char emptyChar = '\0';
+
+        for (int i = 0; i < solutionLetters.Length; i++)
         {
-            if (solution[i] == guess.Value[i])
+            if (solutionLetters[i] == guessLetters[i])
             {
                 correctPositions.Add(i);
+                solutionLetters[i] = emptyChar;
+            }
+            else
+            {
+                remainingLetters[guessLetters[i]] = remainingLetters.GetValueOrDefault(guessLetters[i]) + 1;
+            }
+        }
 
-            } else if (!presentButWrongPosition.ContainsKey(guess.Value[i]) && solution.Contains(guess.Value[i])) {
-                presentButWrongPosition.Add(guess.Value[i], i);
+        for (int i = 0; i < solutionLetters.Length; i++)
+        {
+            if (solutionLetters[i] != emptyChar && solutionLetters.Contains(guessLetters[i]) && remainingLetters.TryGetValue(guessLetters[i], out int count) && count > 0)
+            {
+                presentButWrongPosition.Add(i);
+                remainingLetters.Remove(guessLetters[i]);
             }
         }
 
@@ -68,7 +84,7 @@ public class GameService : IGameService
             IsCorrect = isCorrect,
             IsFinished = game.IsFinished,
             CorrectPositions = correctPositions.ToArray(),
-            PresentButWrongPosition = presentButWrongPosition.Values.ToArray()
+            PresentButWrongPosition = presentButWrongPosition.ToArray()
         });
     }
 
