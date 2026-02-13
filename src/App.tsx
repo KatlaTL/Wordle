@@ -1,8 +1,7 @@
+
 import GameBoard from "./pages/game/GameBoard";
 
 const App = () => {
-
-
   return (
     <GameBoard />
   )
