@@ -28,7 +28,7 @@ public class GameService : IGameService
 
     public Result<GuessWordResponseDto> EvaluateGuess(Guid gameId, string word)
     {
-        if (String.IsNullOrWhiteSpace(word) || word.Length != 5) return Result<GuessWordResponseDto>.Failure("Word must be exactly 5 letters");
+        if (string.IsNullOrWhiteSpace(word) || word.Length != 5) return Result<GuessWordResponseDto>.Failure("Word must be exactly 5 letters");
 
         var game = _gameRepository.GetGame(gameId);
 
