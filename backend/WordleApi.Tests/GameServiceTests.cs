@@ -70,7 +70,7 @@ public class GameServiceTests
     }
 
     [Fact]
-    public void EvaluateGuess_ShouldReturnPresentButWrongPosition()
+    public void EvaluateGuess_ShouldReturnPresentButWrongPositions()
     {
         var gameId = Guid.NewGuid();
 
@@ -80,8 +80,8 @@ public class GameServiceTests
 
         Assert.True(result.IsSuccess);
         Assert.NotNull(result.Value);
-        Assert.Contains(1, result.Value.PresentButWrongPosition);
-        Assert.Contains(2, result.Value.PresentButWrongPosition);
+        Assert.Contains(1, result.Value.PresentButWrongPositions);
+        Assert.Contains(2, result.Value.PresentButWrongPositions);
     }
 
     [Fact]
