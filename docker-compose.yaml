@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: wordle-backend
+    ports:
+      - "5000:80"
+    networks:
+      - fullstack-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: wordle-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      VITE_API_URL: http://backend:80
+    networks:
+      - fullstack-network
+    depends_on:
+      - backend
+
+networks:
+  fullstack-network:
+    driver: bridge

@@ -1,8 +1,6 @@
 import { GameSchema, GuessResponseSchema } from "../schemas/gameSchema";
 import type { GuessResponseType, NewGameType } from "../types/gameType";
-
-
-const API_URL = "http://localhost:5000/api/wordle";
+import { WORDLE_API_URL as API_URL } from "./config";
 
 export const startNewGame = async (): Promise<NewGameType> => {
     const response = await fetch(API_URL + "/game", {

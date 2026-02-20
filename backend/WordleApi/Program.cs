@@ -1,12 +1,15 @@
 var builder = WebApplication.CreateBuilder(args);
 
+// Make the app listen on all interfaces and port 80 inside Docker
+builder.WebHost.UseUrls("http://0.0.0.0:80");
+
 // Services
 builder.Services.AddControllers();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReact", policy =>
     {
-        policy.WithOrigins("http://localhost:5173")
+        policy.WithOrigins("http://localhost:3000", "http://frontend:3000")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });

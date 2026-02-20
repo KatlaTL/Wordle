@@ -12,4 +12,15 @@ export default defineConfig({
     }),
     tailwindcss(),
   ],
+  server: {
+    host: true, // needed for Docker
+    port: 3000,
+    proxy: {
+    "/api": {
+      target: "http://backend:80",
+      changeOrigin: true,
+      secure: false,
+    },
+  },
+  },
 })

@@ -1,0 +1,6 @@
+*.log
+*.env
+.DS_Store
+node_modules/        # optional if you want to ignore all node_modules
+dist/
+build/
