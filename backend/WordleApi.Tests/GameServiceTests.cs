@@ -95,7 +95,7 @@ public class GameServiceTests
 
         Assert.True(result.IsSuccess);
         Assert.NotNull(result.Value);
-        Assert.Equal(2, result.Value.CorrectPositions.Length + result.Value.PresentButWrongPosition.Length);
+        Assert.Equal(2, result.Value.CorrectPositions.Length + result.Value.PresentButWrongPositions.Length);
     }
 
 }
