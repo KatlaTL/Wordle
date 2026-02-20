@@ -3,6 +3,7 @@ import type { GuessResponseType, NewGameType } from "../types/gameType";
 import { WORDLE_API_URL as API_URL } from "./config";
 
 export const startNewGame = async (): Promise<NewGameType> => {
+    console.log(API_URL)
     const response = await fetch(API_URL + "/game", {
         method: "POST",
     });
